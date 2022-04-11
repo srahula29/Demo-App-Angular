@@ -44,8 +44,6 @@ export class EmployeeComponent implements OnInit {
   saveEmployee() {
 
     if (this.employeeId === -1) {
-      //createEmployee
-
       this.employeeService.createEmployee('rahul', this.employee).subscribe(
 
         data => {
@@ -56,8 +54,6 @@ export class EmployeeComponent implements OnInit {
       )
 
     } else {
-      //updateEmployee
-
       this.employeeService.updateEmployee('rahul', this.employeeId, this.employee).subscribe(
 
         data => {
