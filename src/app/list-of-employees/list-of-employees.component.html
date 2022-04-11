@@ -1,0 +1,43 @@
+<h1>My List Of Employees</h1>
+
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Employee Id</th>
+                <th>Employee Name</th>
+                <th>Joining Date</th>
+                <th>Technology</th>
+                <th>Designation</th>
+                <th>Update</th>
+                <th>Delete</th>
+
+
+
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let employee of employees">
+                <td>{{employee.employeeId}}</td>
+                <td>{{employee.employeeName }}</td>
+                <td>{{employee.joiningDate | date | uppercase}}</td>
+                <td>{{employee.technology}}</td>
+                <td>{{employee.designation}}</td>
+
+                <td><button (click)="updateEmployee(employee.employeeId)" class="btn btn-success">Update</button></td>
+
+                <td><button (click)="deleteEmployee(employee.employeeId)" class="btn btn-warning">Delete</button></td>
+
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="row">
+        <button (click)="addEmployee()" class="btn btn-success">Add</button>
+
+    </div>
+
+</div>
