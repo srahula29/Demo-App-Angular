@@ -1,19 +1,21 @@
 <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div> <a routerLink="" class="navbar-brand">
-                   TietoEvry</a></div>
+                TietoEvry</a></div>
 
         <ul class="navbar-nav">
-            <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/welcome/rahul" class="nav-link">Home</a></li>
-            <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/employees" class="nav-link">Employees</a></li>
+            <!-- <li><a *ngIf="hardcodedAuthenticationService.isManagerLoggedIn()" routerLink="/welcome/Manager" class="nav-link">Home</a></li> -->
+            <li><a *ngIf="hardcodedAuthenticationService.isManagerLoggedIn() || hardcodedAuthenticationService.isAdminLoggedIn()" routerLink="/employees" class="nav-link">Employees</a></li>
 
+            <li><a *ngIf="hardcodedAuthenticationService.isTeammemberLoggedIn()  " routerLink="/employees" class="nav-link">Employees</a></li>
 
         </ul>
 
         <ul class="navbar-nav navbar-collapse justify-content-end">
-            <li><a *ngIf="!hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
-            <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()"  routerLink="/logout" class="nav-link">Logout</a></li>
+            <li><a *ngIf="!hardcodedAuthenticationService.isManagerLoggedIn() && !hardcodedAuthenticationService.isAdminLoggedIn() && !hardcodedAuthenticationService.isTeammemberLoggedIn() " routerLink="/login" class="nav-link">Login</a></li>
+            <li><a *ngIf="hardcodedAuthenticationService.isManagerLoggedIn()  || hardcodedAuthenticationService.isAdminLoggedIn()" routerLink="/logout" class="nav-link">Logout</a></li>
 
+            <li><a *ngIf="hardcodedAuthenticationService.isTeammemberLoggedIn()  " routerLink="/logout" class="nav-link">Logout</a></li>
 
         </ul>
 

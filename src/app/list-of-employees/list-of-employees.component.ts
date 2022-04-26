@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EmployeeDataService } from '../service/data/employee-data.service';
+import { HardcodedAuthenticationService } from '../service/hardcoded-authentication.service';
 
 export class Employee {
 
@@ -32,7 +33,8 @@ export class ListOfEmployeesComponent implements OnInit {
 
   constructor(
     private employeeService: EmployeeDataService,
-    private router: Router
+    private router: Router,
+    public hardcodedAuthenticationService: HardcodedAuthenticationService
 
   ) { }
 

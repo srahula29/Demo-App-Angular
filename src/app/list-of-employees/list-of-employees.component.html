@@ -14,8 +14,6 @@
                 <th>Update</th>
                 <th>Delete</th>
 
-
-
             </tr>
         </thead>
 
@@ -27,16 +25,16 @@
                 <td>{{employee.technology}}</td>
                 <td>{{employee.designation}}</td>
 
-                <td><button (click)="updateEmployee(employee.employeeId)" class="btn btn-success">Update</button></td>
+                <td><button (click)="updateEmployee(employee.employeeId)"  *ngIf="!hardcodedAuthenticationService.isAdminLoggedIn() " class="btn btn-success">Update</button></td>
 
-                <td><button (click)="deleteEmployee(employee.employeeId)" class="btn btn-warning">Delete</button></td>
+                <td><button  (click)="deleteEmployee(employee.employeeId)" *ngIf="!hardcodedAuthenticationService.isManagerLoggedIn() && !hardcodedAuthenticationService.isTeammemberLoggedIn()" class="btn btn-warning">Delete</button></td>
 
             </tr>
         </tbody>
     </table>
 
     <div class="row">
-        <button (click)="addEmployee()" class="btn btn-success">Add</button>
+        <button *ngIf="!hardcodedAuthenticationService.isTeammemberLoggedIn() " (click)="addEmployee()" class="btn btn-success">Add</button>
 
     </div>
 

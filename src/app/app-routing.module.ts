@@ -12,10 +12,10 @@ const routes: Routes = [
 
   {path: '' , component: LoginComponent},
   {path: 'login' , component: LoginComponent},
-  {path: 'welcome/:name' , component: WelcomeComponent , canActivate:[RouteGuardService]},
-  {path: 'employees', component: ListOfEmployeesComponent, canActivate:[RouteGuardService]},
-  {path: 'logout' , component: LogoutComponent ,canActivate:[RouteGuardService]},
-  {path: 'employees/:id' , component: EmployeeComponent ,canActivate:[RouteGuardService]},
+  {path: 'welcome/:name' , component: WelcomeComponent },
+  {path: 'employees', component: ListOfEmployeesComponent },
+  {path: 'logout' , component: LogoutComponent },
+  {path: 'employees/:id' , component: EmployeeComponent },
   {path: '**' , component: ErrorComponent}
 ];
 

@@ -43,7 +43,7 @@ export class EmployeeComponent implements OnInit {
 
   saveEmployee() {
 
-    if (this.employeeId === -1) {
+    if (this.employeeId == -1) {
       this.employeeService.createEmployee('rahul', this.employee).subscribe(
 
         data => {
