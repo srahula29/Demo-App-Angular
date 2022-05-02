@@ -1,17 +1,23 @@
 <h1>Login!</h1>
 
 <div class="container">
-<div class="alert alert-warning"  *ngIf='invalidLogin'>{{errorMessage}}</div>
+    <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
 
-<div>
-UserName: <input type ="text" name="username" [(ngModel)]= "username" >
-PassWord: <input type="password" name="password" [(ngModel)]= "password">
+    <div>
+        UserName: <input type="text" name="username" [(ngModel)]="username">
+        PassWord: <input type="password" name="password" [(ngModel)]="password">
 
+        Roles: <select id="roles">
+            <option value="roles">--Please Select Your Role--</option>
+            <option value="manager"> Manager</option>
+            <option value="admin"> Admin</option>
+            <option value="teammember"> Team Member</option>
+        </select>
 
- <button (click)= handleLogin() class="btn btn-success"> Login </button> 
+        <button (click)=handleLogin() class="btn btn-success"> Login </button>
 
-<!-- <button (click)= handleBasicAuthLogin() class="btn btn-success"> Login </button> -->
+        <!-- <button (click)= handleBasicAuthLogin() class="btn btn-success"> Login </button> -->
 
-</div>
+    </div>
 
 </div>

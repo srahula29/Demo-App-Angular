@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
+import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from '@angular/router';
 import { HardcodedAuthenticationService } from './hardcoded-authentication.service';
 
 @Injectable({
@@ -8,11 +7,24 @@ import { HardcodedAuthenticationService } from './hardcoded-authentication.servi
 })
 export class RouteGuardService implements CanActivate {
 
-  constructor() {
+  constructor(private hardcodedAuthenticationService: HardcodedAuthenticationService) {
 
   }
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    throw new Error('Method not implemented.');
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+
+    if (this.hardcodedAuthenticationService.isManagerLoggedIn()) {
+      return true
+    }
+
+    else if (this.hardcodedAuthenticationService.isAdminLoggedIn()) {
+      return true
+    }
+
+    else if (this.hardcodedAuthenticationService.isTeammemberLoggedIn()) {
+      return true
+    }
+
+    return false
   }
 
 }
